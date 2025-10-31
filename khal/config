@@ -1,0 +1,25 @@
+[calendars]
+
+[[private]]
+path = /home/wyq/.local/share/khal/calendars/private
+type = calendar
+color = light blue
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y年%m月%d日
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y年%m月%d日 %H:%M
+firstweekday = 0
+weeknumbers = left
+
+[default]
+default_calendar = private
+highlight_event_days = True
+
+[view]
+theme = dark
+bold_for_light_color = False
+agenda_event_format = {calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}
+
