@@ -1,0 +1,232 @@
+/* Rofi theme by Gemini - A Linux Ricing Master */
+
+* {
+    transparency: "real";
+}
+
+window {
+    width: 45%; /* 你的宽度 */
+    height: 50%; /* 你的高度 */
+    /* 深邃的蓝灰色背景，带有透明度，与模糊效果完美融合 */
+    background-color: #2e3440e6; /* Nord Polar Night, 90% 透明度 */
+    border: 2px solid; /* 边框颜色，稍亮于背景 */
+    border-color: #4c566a40;
+    padding: 10px; /* 内边距 */
+    border-radius: 15px; /* 可选：圆角 */
+}
+
+mainbox {
+    /* 使用稍亮的背景色，与 window 形成层次 */
+    background-color: #3b4252cc; /* Nord Polar Night, 80% 透明度 */
+    border-radius: 15px;
+    children: ["choicebox", "listbox"];
+}
+
+choicebox {
+    background-color: transparent; /* choicebox 本身透明，由内部元素定义背景 */
+    orientation: horizontal;
+    padding: 10px; /* 控制内边距 */
+    expand: false; /* 不自动扩展填充空间 */
+    children: ["inputbar", "mode-switcher"];
+}
+
+/*
+#############################
+#### Mode Switcher Bar #####
+#############################
+*/
+mode-switcher {
+    expand: false; /* 不自动扩展填充空间 */
+    padding: 20px;
+    spacing: 10px;
+    /* 柔和的背景，使其与输入框区分开 */
+    background-color: #434c5e99; /* Nord Polar Night, 60% 透明度 */
+    border-radius: 15px;
+}
+
+button {
+    expand: true;
+    width: 75px;
+    padding: 5px;
+    /* 漂亮的淡紫色作为默认按钮背景 */
+    background-color: #b48ead; /* Nord Frost */
+    text-color: #d8dee9; /* 文本颜色 - 亮灰色 */
+    border-radius: 2em;
+    cursor: pointer;
+}
+
+button selected {
+    border-radius: 2em;
+    /* 选中时使用明亮的极光蓝绿色作为背景 */
+    background-color: #88c0d0; /* Nord Frost */
+    /* 文本颜色变深，形成对比 */
+    text-color: #2e3440; /* Nord Polar Night */
+}
+
+
+/*
+#############################
+######## Input Bar #########
+#############################
+*/
+
+inputbar {
+    enabled: true;
+    margin: 1em;
+    children: [ "textbox-prompt-colon", "entry" ];
+    border-radius: 1em;
+    /* 与 mode-switcher 相同的背景，保持视觉统一 */
+    background-color: #434c5e99; /* Nord Polar Night, 60% 透明度 */
+    border: 2px solid; /* 细边框增加精致感 */
+    border-color: #4c566a40;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ""; /* Font Awesome 搜索图标，更现代 */
+    font: "FiraCode Nerd Font 12"; /* 确保你有 Nerd Font 字体 */
+    /* 使用明亮的文本颜色 */
+    text-color: #d8dee9; /* Nord Snow Storm */
+    background-color: transparent;
+    padding: 10px;
+}
+
+entry {
+    enabled: true;
+    /* 亮色文本，保证输入时清晰可见 */
+    text-color: #eceff4; /* Nord Snow Storm */
+    cursor: text;
+    placeholder: "Search..."; /* 提示词 */
+    background-color: transparent;
+    padding: 10px;
+    width: 15%;
+}
+
+
+
+/*
+#############################
+######### ListBox ##########
+#############################
+*/
+
+listbox {
+    expand: true; /* listbox 占据剩余空间 */
+    background-color: transparent; /* listbox 本身透明 */
+    padding: 10px;
+    children: ["dummy", "listview" ];
+    orientation: horizontal;
+}
+
+/*
+#############################
+######## Dummy Style ########
+#############################
+*/
+
+dummy { /* 放置一个装饰性元素，增加美感 */
+    background-color: #828ca255; /* Nord Polar Night, 80% 透明度 */
+    // background-color: #544c6acc; /* Nord Polar Night, 80% 透明度 */
+    expand: false;
+    width: 8%;
+    border-radius: 20px;
+}
+
+/*
+#############################
+############ List ###########
+#############################
+*/
+
+listview {
+    enabled: true;
+    columns: 1;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    fixed-height: true;
+    fixed-columns: true;
+    cursor: "default";
+    background-color: transparent;
+    /* 列表项的默认文本颜色 */
+    text-color: #d8dee9; /* Nord Snow Storm */
+    border-radius: 10px;
+}
+
+/*
+#############################
+########## Element ##########
+#############################
+*/
+element {
+    padding: 8px; /* 调整内边距，使其更舒适 */
+    enabled: true;
+    spacing: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin: 2px 10px; /* 增加垂直边距，分隔条目 */
+}
+
+element normal.normal {
+    background-color: transparent;
+    /* 默认文本颜色 */
+    text-color: #d8dee9; /* Nord Snow Storm */
+}
+
+element selected.normal {
+    /* 选中时，使用醒目的极光橙色背景 */
+    background-color: #d08770; /* Nord Aurora */
+    /* 文本颜色变为深色以保证对比度 */
+    text-color: #2e3440; /* Nord Polar Night */
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: #d8dee9; /* Nord Snow Storm */
+}
+
+/* 统一所有状态下的文本和背景颜色，仅在 'selected' 时突出显示 */
+element normal.urgent {
+    background-color: inherit;
+    text-color: #bf616a; /* 紧急项使用红色文字 */
+}
+
+element normal.active {
+    background-color: inherit;
+    text-color: #a3be8c; /* 活动项使用绿色文字 */
+}
+
+element selected.urgent {
+    background-color: #bf616a; /* 选中紧急项时，背景为红色 */
+    text-color: #eceff4;
+}
+
+element selected.active {
+    background-color: #a3be8c; /* 选中活动项时，背景为绿色 */
+    text-color: #2e3440;
+}
+
+element alternate.urgent {
+    text-color: #bf616a;
+}
+
+element alternate.active {
+    text-color: #a3be8c;
+}
+
+element-icon {
+    size: 1.5em; /* 图标稍大一些 */
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+    border-radius: 0em;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}

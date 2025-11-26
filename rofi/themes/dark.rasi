@@ -1,0 +1,249 @@
+* {
+    transparency: "real";
+}
+
+/* Nord 色板定义 */
+* {
+    nord0:  #2e3440;
+    nord1:  #3b4252;
+    nord2:  #434c5e;
+    nord3:  #4c566a;
+    nord4:  #d8dee9;
+    nord5:  #e5e9f0;
+    nord6:  #eceff4;
+    nord7:  #8fbcbb;
+    nord8:  #88c0d0;
+    nord9:  #81a1c1;
+    nord10: #5e81ac;
+    nord11: #bf616a;
+    nord12: #d08770;
+    nord13: #ebcb8b;
+    nord14: #a3be8c;
+    nord15: #b48ead;
+}
+
+window {
+    width: 45%;
+    height: 50%;
+    background-color: #2e344095;  /* Nord0 + 透明度 */
+    border: 2px solid;
+    border-color: #4c566a40;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+mainbox {
+    background-color: transparent;
+    border-radius: 15px;
+    children: ["choicebox", "listbox"];
+}
+
+choicebox {
+    background-color: #3b425280;  /* Nord1 + 透明度 */
+    orientation: horizontal;
+    padding: 15px;
+    expand: false;
+    children: ["inputbar", "mode-switcher"];
+    border-radius: 12px;
+    margin: 0px 5px 10px 5px;
+}
+
+/*
+#############################
+#### Mode Switcher Bar #####
+#############################
+*/
+mode-switcher {
+    expand: false;
+    padding: 12px;
+    spacing: 8px;
+    background-color: #434c5e60;  /* Nord2 + 透明度 */
+    border-radius: 10px;
+}
+
+button {
+    expand: true;
+    width: 75px;
+    padding: 8px;
+    background-color: #5e81ac;  /* Nord10 - 深蓝 */
+    text-color: #eceff4;         /* Nord6 - 浅白 */
+    border-radius: 2em;
+    border: 1px solid;
+    border-color: #81a1c140;
+}
+
+button selected {
+    border-radius: 2em;
+    background-color: #88c0d0;  /* Nord8 - 浅蓝 */
+    text-color: #2e3440;        /* Nord0 - 深黑 */
+    border: 2px solid;
+    border-color: #81a1c1;
+}
+
+/*
+#############################
+######## Input Bar #########
+#############################
+*/
+
+inputbar {
+    enabled: true;
+    margin: 0px;
+    children: ["textbox-prompt-colon", "entry"];
+    border-radius: 8px;
+    background-color: #4c566a70;  /* Nord3 + 透明度 */
+    border: 1px solid;
+    border-color: #88c0d040;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+    text-color: #88c0d0;  /* Nord8 - 浅蓝 */
+    background-color: transparent;
+    padding: 12px 15px;
+}
+
+entry {
+    enabled: true;
+    text-color: #eceff4;        /* Nord6 - 浅白 */
+    placeholder-color: #81a1c180;
+    cursor: text;
+    placeholder: "Search...";
+    background-color: transparent;
+    padding: 12px 10px;
+}
+
+/*
+#############################
+######### ListBox ##########
+#############################
+*/
+
+listbox {
+    expand: true;
+    background-color: transparent;
+    padding: 10px;
+    children: ["dummy", "listview"];
+    orientation: horizontal;
+}
+
+/*
+#############################
+######## Dummy Style ########
+#############################
+*/
+
+dummy {
+    background-color: #3b425250;  /* Nord1 浅透明 */
+    expand: false;
+    width: 8%;
+    border-radius: 20px;
+}
+
+/*
+#############################
+############ List ###########
+#############################
+*/
+
+listview {
+    enabled: true;
+    columns: 1;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    fixed-height: true;
+    fixed-columns: true;
+    cursor: "default";
+    background-color: transparent;
+    text-color: #eceff4;
+    border-radius: 10px;
+}
+
+/*
+#############################
+########## Element ##########
+#############################
+*/
+element {
+    padding: 10px 8px;
+    enabled: true;
+    spacing: 12px;
+    cursor: pointer;
+    text-color: #e5e9f0;         /* Nord5 - 浅灰白 */
+    border-radius: 8px;
+    margin: 3px 10px;
+    background-color: transparent;
+}
+
+/* 选中状态 - 使用Nord8浅蓝 */
+element selected.normal {
+    background-color: #88c0d080;  /* Nord8 + 透明 */
+    text-color: #2e3440;          /* 深色文字 */
+    border-radius: 8px;
+    border-left: 3px solid;  /* Nord14 - 绿色左边框 */
+    border-color: #a3be8c;
+}
+
+/* 普通状态 */
+element normal.normal {
+    background-color: transparent;
+    text-color: #e5e9f0;
+}
+
+element normal.urgent {
+    background-color: #bf616a40;  /* Nord11 红色 透明 */
+    text-color: #ebcb8b;          /* Nord13 - 黄色 */
+}
+
+element normal.active {
+    background-color: #a3be8c40;  /* Nord14 绿色 透明 */
+    text-color: #a3be8c;
+}
+
+element selected.urgent {
+    background-color: #bf616a;    /* Nord11 红色 */
+    text-color: #eceff4;
+    border-left: 3px solid ;
+    border-color: #ebcb8b;
+}
+
+element selected.active {
+    background-color: #a3be8c;    /* Nord14 绿色 */
+    text-color: #2e3440;
+    border-left: 3px solid;
+    border-color: #88c0d0;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: #e5e9f0;
+}
+
+element alternate.urgent {
+    background-color: #bf616a30;
+    text-color: #ebcb8b;
+}
+
+element alternate.active {
+    background-color: #a3be8c30;
+    text-color: #a3be8c;
+}
+
+element-icon {
+    size: 1em;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: #88c0d0;  /* Nord8 */
+    border-radius: 0em;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0.0;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+}

@@ -1,0 +1,19 @@
+configuration {
+	modes: "window,drun,run";
+  terminal: "kitty";
+  font: "Monaco 12";
+  fixed-num-lines: true;
+  show-icons: true;
+  icon-theme: "Papirus-Dark";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "~/.config/rofi/themes/dark2.rasi"
